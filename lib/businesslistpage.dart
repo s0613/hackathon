@@ -49,7 +49,7 @@ class BusinessListPage extends StatelessWidget {
                   businessType: "식품",
                 ),
                 BusinessCard(
-                  imageUrl: 'https://dimg.donga.com/wps/NEWS/IMAGE/2017/07/26/85526065.1.jpg',
+                  imageUrl: 'https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202405/01/dd7f51cd-e766-423d-9d50-e8cfb98963f1.jpg/_ir_/resize/1280',
                   name: 'Sahid Raya Hotel',
                   foreignWorkers: 10,
                   businessType: 'Hospitality',
