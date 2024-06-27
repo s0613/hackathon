@@ -14,12 +14,13 @@ class BusinessListPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: CircleAvatar(
-              backgroundImage: NetworkImage('https://via.placeholder.com/150'), // Replace with actual user image URL
+              backgroundImage: NetworkImage('https://i.pinimg.com/736x/bc/d3/e0/bcd3e0ad21772774f90e699778aea46b.jpg'), // Replace with actual user image URL
             ),
           ),
         ],
       ),
       body: Column(
+
         children: [
           Padding(
             padding: const EdgeInsets.all(16.0),
@@ -37,7 +38,9 @@ class BusinessListPage extends StatelessWidget {
             ),
           ),
           Expanded(
+
             child: ListView(
+
               children: [
                 BusinessCard(
                   imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJejcO9poeGELpRjAxrZ0kRhUP-IjFDY0pcw&s',
@@ -50,6 +53,72 @@ class BusinessListPage extends StatelessWidget {
                   name: 'Sahid Raya Hotel',
                   foreignWorkers: 10,
                   businessType: 'Hospitality',
+                ),
+                BusinessCard(
+                  imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJejcO9poeGELpRjAxrZ0kRhUP-IjFDY0pcw&s',
+                  name: '강원도 태백 배추 공장',
+                  foreignWorkers: 15,
+                  businessType: "식품",
+                ),
+                BusinessCard(
+                  imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJejcO9poeGELpRjAxrZ0kRhUP-IjFDY0pcw&s',
+                  name: '강원도 태백 배추 공장',
+                  foreignWorkers: 15,
+                  businessType: "식품",
+                ),
+                BusinessCard(
+                  imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJejcO9poeGELpRjAxrZ0kRhUP-IjFDY0pcw&s',
+                  name: '강원도 태백 배추 공장',
+                  foreignWorkers: 15,
+                  businessType: "식품",
+                ),
+                BusinessCard(
+                  imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJejcO9poeGELpRjAxrZ0kRhUP-IjFDY0pcw&s',
+                  name: '강원도 태백 배추 공장',
+                  foreignWorkers: 15,
+                  businessType: "식품",
+                ),
+                BusinessCard(
+                  imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJejcO9poeGELpRjAxrZ0kRhUP-IjFDY0pcw&s',
+                  name: '강원도 태백 배추 공장',
+                  foreignWorkers: 15,
+                  businessType: "식품",
+                ),
+                BusinessCard(
+                  imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJejcO9poeGELpRjAxrZ0kRhUP-IjFDY0pcw&s',
+                  name: '강원도 태백 배추 공장',
+                  foreignWorkers: 15,
+                  businessType: "식품",
+                ),
+                BusinessCard(
+                  imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJejcO9poeGELpRjAxrZ0kRhUP-IjFDY0pcw&s',
+                  name: '강원도 태백 배추 공장',
+                  foreignWorkers: 15,
+                  businessType: "식품",
+                ),
+                BusinessCard(
+                  imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJejcO9poeGELpRjAxrZ0kRhUP-IjFDY0pcw&s',
+                  name: '강원도 태백 배추 공장',
+                  foreignWorkers: 15,
+                  businessType: "식품",
+                ),
+                BusinessCard(
+                  imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJejcO9poeGELpRjAxrZ0kRhUP-IjFDY0pcw&s',
+                  name: '강원도 태백 배추 공장',
+                  foreignWorkers: 15,
+                  businessType: "식품",
+                ),
+                BusinessCard(
+                  imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJejcO9poeGELpRjAxrZ0kRhUP-IjFDY0pcw&s',
+                  name: '강원도 태백 배추 공장',
+                  foreignWorkers: 15,
+                  businessType: "식품",
+                ),
+                BusinessCard(
+                  imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJejcO9poeGELpRjAxrZ0kRhUP-IjFDY0pcw&s',
+                  name: '강원도 태백 배추 공장',
+                  foreignWorkers: 15,
+                  businessType: "식품",
                 ),
                 // Add more BusinessCard widgets here
               ],
@@ -84,6 +153,7 @@ class BusinessCard extends StatelessWidget {
         ),
         elevation: 4,
         child: ListTile(
+
           leading: ClipRRect(
             borderRadius: BorderRadius.circular(15.0),
             child: Image.network(

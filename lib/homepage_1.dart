@@ -24,7 +24,7 @@ class _MyHomePageStateMem extends State<MyHomePageMem> {
             child: PageView(
               controller: _pageController,
               children: <Widget>[
-                ProfilePage(name: "안광윤", experience: "전기", department: "공정 관리", koreanLevel: "하", company: "CS_COMPANY"),
+                ProfilePage(name: "Mickeyna", experience: "2년", department: "포장", koreanLevel: '중급', company: "CS_com"),
                 BusinessListPage(),
                 MenuScreen(),
 

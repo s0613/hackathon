@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'chatScreen.dart';
 
 
 class InquiryPage extends StatelessWidget {
@@ -62,22 +62,15 @@ class InquiryPage extends StatelessWidget {
   }
 }
 
-
-
-
-
-
-
-
 class QnAPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('자주하는 질문', style: TextStyle(color: Colors.white)),
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: const Color(0xffd9eae8),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xffd9eae8),
       body: Column(
         children: <Widget>[
           Expanded(
@@ -127,24 +120,25 @@ class QnAPage extends StatelessWidget {
               ],
             ),
           ),
-          // SizedBox(height: 16.0),
-          // ElevatedButton(
-          //   onPressed: () {
-          //     Navigator.push(
-          //       context,
-          //       MaterialPageRoute(builder: (context) => InquiryPage()),
-          //     );
-          //   },
-          //   style: ElevatedButton.styleFrom(
-          //     backgroundColor: Colors.blueGrey,
-          //     padding: EdgeInsets.symmetric(horizontal: 50, vertical: 30),
-          //     textStyle: TextStyle(fontSize: 18, color: Colors.white),
-          //     shape: RoundedRectangleBorder(
-          //       borderRadius: BorderRadius.circular(8.0),
-          //     ),
-          //   ),
-          //   child: Text('문의하기'),
-          // ),
+          SizedBox(height: 16.0),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => InquiryPage()),
+              );
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white30,
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              textStyle: TextStyle(fontSize: 18, color: Colors.white),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+            ),
+            child: Text('문의하기'),
+          ),
+          SizedBox(height: 16.0),
 
 
         ],
@@ -153,7 +147,7 @@ class QnAPage extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => InquiryPage()),
+            MaterialPageRoute(builder: (context) => ChatScreen()),
           );
         },
         child: Icon(Icons.chat),
@@ -177,24 +171,37 @@ class CustomExpansionTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(12.0), // 라운드 처리
-        child: ExpansionTile(
-          backgroundColor: Colors.black12,
-          title: Text(
-            title,
-            style: TextStyle(fontSize: 18, color: Colors.black),
-          ),
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                answer,
-                style: TextStyle(color: Colors.black),
+      child: Column(
+        children: <Widget>[
+          ClipRRect(
+            // borderRadius: BorderRadius.circular(12.0), // 라운드 처리
+            child: ExpansionTile(
+              tilePadding: EdgeInsets.zero,
+              backgroundColor: Colors.white12,
+              title: Text(
+                title,
+                style: TextStyle(fontSize: 18, color: Colors.black),
               ),
+              children: <Widget>[
+                Divider(
+                  height: 1,
+                  color: Colors.grey, // Divider의 색상
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text(
+                    answer,
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+          Divider(
+            height: 1,
+            color: Colors.grey, // Divider의 색상
+          ),
+        ],
       ),
     );
   }
