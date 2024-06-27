@@ -109,6 +109,7 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
+
 class ProfilePage extends StatelessWidget {
   final String name;
   final String experience;
@@ -116,14 +117,12 @@ class ProfilePage extends StatelessWidget {
   final String koreanLevel;
   final String company;
 
-
   ProfilePage({
     required this.name,
     required this.experience,
     required this.department,
     required this.koreanLevel,
     required this.company,
-
   });
 
   @override
@@ -142,7 +141,7 @@ class ProfilePage extends StatelessWidget {
             width: 350,
             height: 500,
             decoration: BoxDecoration(
-              color: Colors.blue[50],
+              color: Colors.white,
               borderRadius: BorderRadius.circular(20.0),
               boxShadow: [
                 BoxShadow(
@@ -162,43 +161,66 @@ class ProfilePage extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  '이름: $name',
-                  style: TextStyle(fontSize: 20),
+                  name,
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
-                Text(
-                  '경력: $experience',
-                  style: TextStyle(fontSize: 20),
-                ),
-                Text(
-                  '부서: $department',
-                  style: TextStyle(fontSize: 20),
-                ),
-                Text(
-                  '한국어 수준: $koreanLevel',
-                  style: TextStyle(fontSize: 20),
-                ),
-                Text(
-                  '근무회사: $company',
-                  style: TextStyle(fontSize: 20),
-                ),
-                SizedBox(height: 70,),
-                Positioned(
-                  bottom: 8.0,
-                  right: 8.0,
-                  child: FloatingActionButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => InputPage()),
-                      );
-                    },
-                    child: Icon(Icons.settings, color: Colors.indigo,),
+                Divider(color: Color.fromARGB(255, 192, 192, 192)),
+                ProfileDetail(title: '경력', value: experience),
+                Divider(color: Color.fromARGB(255, 192, 192, 192)),
+                ProfileDetail(title: '부서', value: department),
+                Divider(color: Color.fromARGB(255, 192, 192, 192)),
+                ProfileDetail(title: '한국어 수준', value: koreanLevel),
+                Divider(color: Color.fromARGB(255, 192, 192, 192)),
+                ProfileDetail(title: '근무회사', value: company),
+                SizedBox(height: 20),
+                Spacer(),
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: FloatingActionButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => InputPage()),
+                        );
+                      },
+                      child: Icon(Icons.settings, color: Colors.white),
+                      backgroundColor: Colors.indigo,
+                    ),
                   ),
                 ),
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class ProfileDetail extends StatelessWidget {
+  final String title;
+  final String value;
+
+  ProfileDetail({required this.title, required this.value});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+          ),
+          Text(
+            value,
+            style: TextStyle(fontSize: 18),
+          ),
+        ],
       ),
     );
   }

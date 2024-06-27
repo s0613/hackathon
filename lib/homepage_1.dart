@@ -4,6 +4,7 @@ import 'profile.dart';
 import 'idcard.dart';
 import 'labormenu.dart';
 import 'dart:ui';
+import 'businesslistpage.dart';
 
 class MyHomePageMem extends StatefulWidget {
   @override
@@ -16,9 +17,7 @@ class _MyHomePageStateMem extends State<MyHomePageMem> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SliverAppBar(
-        title: Text('CS Company'),
-      ),
+
       body: Column(
         children: <Widget>[
           Expanded(
@@ -26,8 +25,9 @@ class _MyHomePageStateMem extends State<MyHomePageMem> {
               controller: _pageController,
               children: <Widget>[
                 ProfilePage(name: "안광윤", experience: "전기", department: "공정 관리", koreanLevel: "하", company: "CS_COMPANY"),
+                BusinessListPage(),
                 MenuScreen(),
-                InputPage(),
+
               ],
             ),
           ),

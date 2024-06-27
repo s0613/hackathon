@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'inquiry.dart';
+
+
 class MenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -9,8 +11,8 @@ class MenuScreen extends StatelessWidget {
         title: Align(
           alignment: Alignment.centerLeft,  // 앱바 타이틀을 왼쪽 정렬로 설정
           child: Text(
-            '메뉴',
-            style: TextStyle(fontWeight: FontWeight.bold),
+            'Menu',
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
           ),
         ),
       ),
@@ -23,8 +25,8 @@ class MenuScreen extends StatelessWidget {
               child: Column(
                 children: [
                   MenuItem(
+                    icon: Icons.question_answer,
                     label: '상담',
-                    description: '자주하는 질문 및 상담',
                     onPressed: () {
                       // Menu 1 동작
                       Navigator.push(
@@ -33,9 +35,10 @@ class MenuScreen extends StatelessWidget {
                       );
                     },
                   ),
+                  CustomDivider(),
                   MenuItem(
+                    icon: Icons.calendar_today,
                     label: '출석',
-                    description: '출석 및 월급 계산',
                     onPressed: () {
                       // Menu 2 동작
                       Navigator.push(
@@ -44,9 +47,10 @@ class MenuScreen extends StatelessWidget {
                       );
                     },
                   ),
+                  CustomDivider(),
                   MenuItem(
+                    icon: Icons.work,
                     label: '희망 근무지',
-                    description: '희망 직무 및 근무지 신청',
                     onPressed: () {
                       // Menu 3 동작
                       Navigator.push(
@@ -55,9 +59,10 @@ class MenuScreen extends StatelessWidget {
                       );
                     },
                   ),
+                  CustomDivider(),
                   MenuItem(
+                    icon: Icons.assignment,
                     label: '비자',
-                    description: '체류 기간 및 남은 체류 기간',
                     onPressed: () {
                       // Menu 4 동작
                       Navigator.push(
@@ -66,9 +71,10 @@ class MenuScreen extends StatelessWidget {
                       );
                     },
                   ),
+                  CustomDivider(),
                   MenuItem(
+                    icon: Icons.report_problem,
                     label: '문제 신고',
-                    description: '문제 발생 시 신고',
                     onPressed: () {
                       // Menu 5 동작
                       Navigator.push(
@@ -77,9 +83,10 @@ class MenuScreen extends StatelessWidget {
                       );
                     },
                   ),
+                  CustomDivider(),
                   MenuItem(
+                    icon: Icons.question_answer,
                     label: '문의사항',
-                    description: '문제 발생 시 신고',
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -87,77 +94,62 @@ class MenuScreen extends StatelessWidget {
                       );
                     },
                   ),
-                  Positioned(
-                    bottom: 16.0,
-                    right: 16.0,
-                    child: FloatingActionButton(
-                      onPressed: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('AI 채팅 서비스로 이동합니다...')),
-                        );
-                      },
-                      child: Icon(Icons.chat),
-                    ),
-                  ),
+                  CustomDivider(),
                 ],
               ),
             ),
-
           ),
-          Divider(),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('AI 채팅 서비스로 이동합니다...')),
+          );
+        },
+        child: Icon(Icons.chat),
       ),
     );
   }
 }
-
-
+class CustomDivider extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 8.0),
+      height: 1.0,
+      width: MediaQuery.of(context).size.width * 0.9, // 가로 길이를 설정
+      color: Colors.grey, // 색상을 설정
+    );
+  }
+}
 class MenuItem extends StatelessWidget {
+  final IconData icon;
   final String label;
-  final String description;
   final VoidCallback onPressed;
 
-  MenuItem({required this.label, required this.description, required this.onPressed});
+  MenuItem({required this.icon, required this.label, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: SizedBox(
-        width: double.infinity,
-        child: ElevatedButton(
-          onPressed: onPressed,
-          style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 16.0),
-            backgroundColor: Colors.white,  // 버튼 배경을 하얗게 설정
-            side: BorderSide(color: Colors.black, width: 1.0),  // 버튼에 검은색 경계선을 추가
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.zero,  // 네모 모양으로 설정
+    return InkWell(
+      onTap: onPressed,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8.0),
+        child: Row(
+          children: [
+            Icon(icon, color: Colors.black),
+            SizedBox(width: 16.0),
+            Text(
+              label,
+              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold, color: Colors.black),
             ),
-          ),
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  label,
-                  style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold, color: Colors.black),  // 텍스트를 검정색으로 설정
-                ),
-                SizedBox(height: 6.0),
-                Text(
-                  description,
-                  style: TextStyle(fontSize: 14.0, color: Colors.black),  // 텍스트를 검정색으로 설정
-                ),
-              ],
-            ),
-          ),
+          ],
         ),
       ),
     );
   }
 }
-
 // 각 페이지에 대한 간단한 예제입니다.
 class Page1 extends StatelessWidget {
   @override
