@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/chatScreen.dart';
 import 'inquiry.dart';
 
 
@@ -103,9 +104,10 @@ class MenuScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('AI 채팅 서비스로 이동합니다...')),
-          );
+          Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ChatScreen()),
+                      );
         },
         child: Icon(Icons.chat),
       ),
