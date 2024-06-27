@@ -27,12 +27,12 @@ class MenuScreen extends StatelessWidget {
                 children: [
                   MenuItem(
                     icon: Icons.question_answer,
-                    label: '상담',
+                    label: '문의 및 상담',
                     onPressed: () {
                       // Menu 1 동작
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Page1()),
+                        MaterialPageRoute(builder: (context) => QnAPage()),
                       );
                     },
                   ),
@@ -85,32 +85,13 @@ class MenuScreen extends StatelessWidget {
                     },
                   ),
                   CustomDivider(),
-                  MenuItem(
-                    icon: Icons.question_answer,
-                    label: '문의사항',
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => QnAPage()),
-                      );
-                    },
-                  ),
-                  CustomDivider(),
                 ],
               ),
             ),
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => ChatScreen()),
-                      );
-        },
-        child: Icon(Icons.chat),
-      ),
+
     );
   }
 }

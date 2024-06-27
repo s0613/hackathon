@@ -128,21 +128,42 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('사원증'),
-        backgroundColor: Colors.blueGrey,
-        centerTitle: true,
-        titleTextStyle: TextStyle(fontSize: 25, color: Colors.white),
-      ),
+        appBar: AppBar(
+          title: Text("AppBar Icon Menu"),
+          centerTitle: true,
+          elevation: 0,
+          // 간단한 위젯이나 아이콘들을 앱바 왼쪽에 배치시키는 기능
+          // 그러나 앱바에서만 쓰이는 속성은 아님
+          leading: IconButton(
+            icon: Icon(Icons.person),
+            onPressed: () {
+              print('menu button is clicked');
+            },
+          ),
+          // 앱바 오른쪽에 액션을 수행할 수 있는 위젯들을 배치시키는 기능
+          // 배열 형식으로 보여주면서 복수개를 배치시킬 수 있음
+          actions: [
+            IconButton(
+              icon: Icon(Icons.settings),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => InputPage()),
+                );
+              },
+            ),
+
+          ],
+        ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Container(
             width: 350,
-            height: 500,
+            height: 600,
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(20.0),
+              borderRadius: BorderRadius.circular(8.0),
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey.withOpacity(0.5),
@@ -154,23 +175,53 @@ class ProfilePage extends StatelessWidget {
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                CircleAvatar(
-                  radius: 60,
-                  backgroundImage: AssetImage('assets/images/refer.jpeg'),
+                Container(
+                  width: 150,
+                  height: 150,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(3.0),
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage('assets/images/refer.jpeg'),
+                    ),
+                  ),
                 ),
                 SizedBox(height: 20),
                 Text(
                   name,
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
-                Divider(color: Color.fromARGB(255, 192, 192, 192)),
+                SizedBox(height: 8),
+                Divider(
+                  color: Colors.grey[300],
+                  thickness: 1,
+                  indent: 20,
+                  endIndent: 20,
+                ),
                 ProfileDetail(title: '경력', value: experience),
-                Divider(color: Color.fromARGB(255, 192, 192, 192)),
+                Divider(
+                  color: Colors.grey[300],
+                  thickness: 1,
+                  indent: 20,
+                  endIndent: 20,
+                ),
                 ProfileDetail(title: '부서', value: department),
-                Divider(color: Color.fromARGB(255, 192, 192, 192)),
+                Divider(
+                  color: Colors.grey[300],
+                  thickness: 1,
+                  indent: 20,
+                  endIndent: 20,
+                ),
                 ProfileDetail(title: '한국어 수준', value: koreanLevel),
-                Divider(color: Color.fromARGB(255, 192, 192, 192)),
+                Divider(
+                  color: Colors.grey[300],
+                  thickness: 1,
+                  indent: 20,
+                  endIndent: 20,
+                ),
                 ProfileDetail(title: '근무회사', value: company),
                 SizedBox(height: 20),
                 Spacer(),
@@ -195,6 +246,7 @@ class ProfilePage extends StatelessWidget {
           ),
         ),
       ),
+
     );
   }
 }
@@ -208,7 +260,7 @@ class ProfileDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -225,3 +277,7 @@ class ProfileDetail extends StatelessWidget {
     );
   }
 }
+
+
+
+
