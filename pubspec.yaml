@@ -28,6 +28,9 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  smooth_page_indicator: ^1.1.0
+#  http: ^0.13.3
+
   flutter:
     sdk: flutter
 
@@ -52,7 +55,9 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
+  assets:
+    - assets/images/refer.jpeg
+    - assets/images/loading.png
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
