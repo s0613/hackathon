@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/chatScreen.dart';
-import 'inquiry.dart';
+import 'inquiryForboss.dart';
 
 
-class MenuScreen extends StatelessWidget {
+class Menuforboss extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +54,7 @@ class MenuScreen extends StatelessWidget {
                     CustomDivider(),
                     MenuItem(
                       icon: Icons.edit_calendar_outlined,
-                      label: '출석',
+                      label: '출석 관리',
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -66,7 +65,7 @@ class MenuScreen extends StatelessWidget {
                     CustomDivider(),
                     MenuItem(
                       icon: Icons.workspaces_outline,
-                      label: '희망 근무지',
+                      label: '근로자 요청',
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -77,7 +76,7 @@ class MenuScreen extends StatelessWidget {
                     CustomDivider(),
                     MenuItem(
                       icon: Icons.paste_outlined,
-                      label: '비자',
+                      label: '구독권',
                       onPressed: () {
                         Navigator.push(
                           context,
