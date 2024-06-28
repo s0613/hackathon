@@ -1,6 +1,22 @@
 import 'package:flutter/material.dart';
-import 'homepage_1.dart';
+import 'homepage_1.dart'; // Import your home page for member login
+import 'package:myapp/companyInfoScreen.dart';
+void main() {
+  runApp(MyApp());
+}
 
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blueGrey,
+      ),
+      home: SplashScreen(),
+    );
+  }
+}
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -23,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async => false,
-      child : Scaffold(
+      child: Scaffold(
         backgroundColor: Colors.blueGrey,
         body: Center(
           child: Image.asset('assets/images/loading.png'),
@@ -48,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
       if (userType == 'boss') {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => MyHomePageMem()),
+          MaterialPageRoute(builder: (context) => CompanyInfoScreen()),
         );
       } else if (userType == 'member') {
         Navigator.pushReplacement(
@@ -63,8 +79,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('로그인', style: TextStyle(color: Colors.white),),
-
+        title: Text('로그인', style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.blueGrey,
       ),
       body: Padding(
@@ -107,48 +122,68 @@ class _LoginPageState extends State<LoginPage> {
                 },
               ),
               SizedBox(height: 16.0),
-              ElevatedButton(
-                onPressed: () => _validateAndLogin(context, 'boss'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueGrey,
-                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
-                  textStyle: TextStyle(fontSize: 18, color: Colors.white),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: () => _validateAndLogin(context, 'boss'),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blueGrey,
+                          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                          textStyle: TextStyle(fontSize: 18, color: Colors.white),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                        ),
+                        child: Text('사장님으로 로그인', style: TextStyle(color: Colors.white)),
+                      ),
+                    ),
+                    SizedBox(height: 10.0),
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: () => _validateAndLogin(context, 'member'),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blueGrey,
+                          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                          textStyle: TextStyle(fontSize: 18, color: Colors.white),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                        ),
+                        child: Text('회원으로 로그인', style: TextStyle(color: Colors.white)),
+                      ),
+                    ),
+                    SizedBox(height: 16.0),
+                    SizedBox(
+                      width: double.infinity,
+                      child: TextButton(
+                        style: TextButton.styleFrom(
+                          backgroundColor: Colors.blueGrey,
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => SignUpPage()),
+                          );
+                        },
+                        child: Text('회원가입', style: TextStyle(color: Colors.white)),
+                      ),
+                    ),
+                    SizedBox(height: 20.0),
+                    Text(
+                      '아이디 / 비밀번호 찾기',
+                      style: TextStyle(
+                        decoration: TextDecoration.underline,
+                        color: Colors.blueGrey,
+                      ),
+                    ),
+                  ],
                 ),
-                child: Text('사장님으로 로그인', style: TextStyle(color: Colors.white)),
-              ),
-              SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: () => _validateAndLogin(context, 'member'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueGrey,
-                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
-                  textStyle: TextStyle(fontSize: 18, color: Colors.white),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
-                ),
-                child: Text('회원으로 로그인', style: TextStyle(color: Colors.white)),
-              ),
-              SizedBox(height: 16),
-              TextButton(
-                style: FilledButton.styleFrom(
-                    backgroundColor: Colors.blueGrey,
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SignUpPage()),
-                  );
-                },
-                child: Text('회원가입', style: TextStyle(color: Colors.white)),
-              ),
-              SizedBox(height: 20),
-              Text(
-                '아이디 / 비밀번호 찾기',
-                style: TextStyle(decoration: TextDecoration.underline, color: Colors.blueGrey),
               ),
             ],
           ),
@@ -158,20 +193,32 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-
-
-
 class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('회원가입'),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.blueGrey,
       ),
       body: Center(
-        child: Text('회원가입 페이지', style: TextStyle(color: Colors.white)),
+        child: Text('회원가입 페이지', style: TextStyle(color: Colors.black)),
+      ),
+    );
+  }
+}
+
+class MyHomePageMem extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('회원 메인 페이지'),
+        backgroundColor: Colors.blueGrey,
+      ),
+      body: Center(
+        child: Text('회원 메인 페이지', style: TextStyle(color: Colors.black)),
       ),
     );
   }
