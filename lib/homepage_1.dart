@@ -27,15 +27,15 @@ class _MyHomePageStateMem extends State<MyHomePageMem> {
                 ProfilePage(name: "Mickeyna", experience: "2년", department: "포장", koreanLevel: '중급', company: "CS_com"),
                 BusinessListPage(),
                 MenuScreen(),
-
               ],
             ),
           ),
-          SmoothPageIndicator(
-            controller: _pageController,
-            count: 3,
-            // effect: WormEffect(),
-          ),
+          // SmoothPageIndicator(
+          //   controller: _pageController,
+          //   count: 3,
+          //   // effect: WormEffect(),
+          // ),
+
         ],
       ),
     );
