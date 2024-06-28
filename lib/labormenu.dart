@@ -7,105 +7,117 @@ class MenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Align(
-          alignment: Alignment.centerLeft,  // 앱바 타이틀을 왼쪽 정렬로 설정
-          child: Text(
-            'Menu',
-            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            backgroundColor: Color(0xFFFFFFFF), // AppBar 배경색 HEX로 설정
+            pinned: true,
+            title: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Menu',
+                style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+              ),
+            ),
+            leading: IconButton(
+              icon: Icon(Icons.menu, color: Colors.black),
+              onPressed: () {
+                print('menu button is clicked');
+              },
+            ),
           ),
-        ),
-      ),
-      backgroundColor: Colors.white,  // 전체 배경을 하얗게 설정
-      body: Column(
-        children: [
-          Divider(),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  MenuItem(
-                    icon: Icons.question_answer,
-                    label: '문의 및 상담',
-                    onPressed: () {
-                      // Menu 1 동작
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => QnAPage()),
-                      );
-                    },
-                  ),
-                  CustomDivider(),
-                  MenuItem(
-                    icon: Icons.calendar_today,
-                    label: '출석',
-                    onPressed: () {
-                      // Menu 2 동작
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Page2()),
-                      );
-                    },
-                  ),
-                  CustomDivider(),
-                  MenuItem(
-                    icon: Icons.work,
-                    label: '희망 근무지',
-                    onPressed: () {
-                      // Menu 3 동작
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Page3()),
-                      );
-                    },
-                  ),
-                  CustomDivider(),
-                  MenuItem(
-                    icon: Icons.assignment,
-                    label: '비자',
-                    onPressed: () {
-                      // Menu 4 동작
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Page4()),
-                      );
-                    },
-                  ),
-                  CustomDivider(),
-                  MenuItem(
-                    icon: Icons.report_problem,
-                    label: '문제 신고',
-                    onPressed: () {
-                      // Menu 5 동작
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Page5()),
-                      );
-                    },
-                  ),
-                  CustomDivider(),
-                ],
+          SliverToBoxAdapter(
+            child: Container(
+              decoration: BoxDecoration(
+                color: Color(0xFFF2F2F2), // body 배경색 HEX로 설정
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30.0),
+                  topRight: Radius.circular(30.0),
+                ),
+              ),
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    Divider(),
+                    MenuItem(
+                      icon: Icons.question_answer_outlined,
+                      label: '문의 및 상담',
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => QnAPage()),
+                        );
+                      },
+                    ),
+                    CustomDivider(),
+                    MenuItem(
+                      icon: Icons.edit_calendar_outlined,
+                      label: '출석',
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Page2()),
+                        );
+                      },
+                    ),
+                    CustomDivider(),
+                    MenuItem(
+                      icon: Icons.workspaces_outline,
+                      label: '희망 근무지',
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Page3()),
+                        );
+                      },
+                    ),
+                    CustomDivider(),
+                    MenuItem(
+                      icon: Icons.paste_outlined,
+                      label: '비자',
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Page4()),
+                        );
+                      },
+                    ),
+                    CustomDivider(),
+                    MenuItem(
+                      icon: Icons.feedback_outlined,
+                      label: '문제 신고',
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Page5()),
+                        );
+                      },
+                    ),
+                    CustomDivider(),
+                  ],
+                ),
               ),
             ),
           ),
         ],
       ),
-
     );
   }
 }
+
 class CustomDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 8.0),
       height: 1.0,
-      width: MediaQuery.of(context).size.width * 0.9, // 가로 길이를 설정
-      color: Colors.grey, // 색상을 설정
+      width: MediaQuery.of(context).size.width * 0.9,
+      color: Colors.grey,
     );
   }
 }
+
 class MenuItem extends StatelessWidget {
   final IconData icon;
   final String label;

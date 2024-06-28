@@ -129,13 +129,17 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("AppBar Icon Menu"),
-          centerTitle: true,
-          elevation: 0,
-          // 간단한 위젯이나 아이콘들을 앱바 왼쪽에 배치시키는 기능
-          // 그러나 앱바에서만 쓰이는 속성은 아님
+          backgroundColor: Color(0xFFFFFFFF),
+          title: Align(
+            alignment: Alignment.centerLeft,  // 앱바 타이틀을 왼쪽 정렬로 설정
+            child: Text(
+              'ID CARD',
+              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+            ),
+
+          ),
           leading: IconButton(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.perm_contact_cal_outlined),
             onPressed: () {
               print('menu button is clicked');
             },
@@ -155,6 +159,7 @@ class ProfilePage extends StatelessWidget {
 
           ],
         ),
+      backgroundColor: Color(0xFFF2F2F2),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),

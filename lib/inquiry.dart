@@ -150,12 +150,11 @@ class QnAPage extends StatelessWidget {
             MaterialPageRoute(builder: (context) => ChatScreen()),
           );
         },
-        child: Icon(Icons.chat),
+        child: Icon(Icons.hub_outlined),
       ),
     );
   }
 }
-
 
 class CustomExpansionTile extends StatelessWidget {
   final String title;
