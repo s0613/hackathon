@@ -56,12 +56,13 @@ dev_dependencies:
 flutter:
   assets:
     - assets/images/refer.jpeg
-    - assets/images/loading.png
     - assets/images/com.jpg
     - assets/images/fori.png
+    - assets/images/CS_logo.png
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
+  
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:

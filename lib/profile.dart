@@ -192,7 +192,7 @@ class ProfilePage extends StatelessWidget {
                       decoration: BoxDecoration(
                         shape: BoxShape.rectangle,
                         borderRadius: BorderRadius.circular(3.0),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           fit: BoxFit.cover,
                           image: AssetImage('assets/images/fori.png'),
                         ),

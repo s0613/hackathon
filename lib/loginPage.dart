@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
       child: Scaffold(
         backgroundColor:  const Color(0xFF6D8FA8),
         body: Center(
-          child: Image.asset('assets/images/loading.png'),
+          child: Image.asset('assets/images/CS_logo.png'),
         ),
       ),
     );
@@ -137,7 +137,7 @@ class _LoginPageState extends State<LoginPage> {
                             borderRadius: BorderRadius.circular(12.0),
                           ),
                         ),
-                        child: Text('사장님으로 로그인', style: TextStyle(color: Colors.white)),
+                        child: Text('고용자 로그인', style: TextStyle(color: Colors.white)),
                       ),
                     ),
                     SizedBox(height: 10.0),
@@ -153,7 +153,7 @@ class _LoginPageState extends State<LoginPage> {
                             borderRadius: BorderRadius.circular(12.0),
                           ),
                         ),
-                        child: Text('회원으로 로그인', style: TextStyle(color: Colors.white)),
+                        child: Text(' 로그인', style: TextStyle(color: Colors.white)),
                       ),
                     ),
                     SizedBox(height: 16.0),
