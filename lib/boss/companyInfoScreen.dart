@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class InputPage extends StatefulWidget {
+class InputPage2 extends StatefulWidget {
   @override
-  _InputPageState createState() => _InputPageState();
+  _InputPageState2 createState() => _InputPageState2();
 }
 
-class _InputPageState extends State<InputPage> {
+class _InputPageState2 extends State<InputPage2> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _experienceController = TextEditingController();
@@ -20,10 +20,9 @@ class _InputPageState extends State<InputPage> {
         title: Text('정보 입력'),
         backgroundColor: Color(0xFFFFFFFF),
         centerTitle: true,
-        titleTextStyle: TextStyle(fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),
+        titleTextStyle: TextStyle(fontSize: 25, color: Colors.black ,fontWeight: FontWeight.bold),
       ),
       backgroundColor: const Color(0xFFF2F2F2),
-
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
@@ -33,63 +32,62 @@ class _InputPageState extends State<InputPage> {
               children: <Widget>[
                 TextFormField(
                   controller: _nameController,
-                  decoration: InputDecoration(labelText: '이름'),
+                  decoration: InputDecoration(labelText: '회사 이름'),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return '이름을 입력해주세요';
+                      return '회사 이름을 입력해주세요';
                     }
                     return null;
                   },
                 ),
                 TextFormField(
                   controller: _experienceController,
-                  decoration: InputDecoration(labelText: '경력'),
+                  decoration: InputDecoration(labelText: '창립 년도'),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return '경력을 입력해주세요';
+                      return '창립 년도를 입력해주세요';
                     }
                     return null;
                   },
                 ),
                 TextFormField(
                   controller: _departmentController,
-                  decoration: InputDecoration(labelText: '부서'),
+                  decoration: InputDecoration(labelText: '전화'),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return '부서를 입력해주세요';
+                      return '전화번호를 입력해주세요';
                     }
                     return null;
                   },
                 ),
                 TextFormField(
                   controller: _koreanLevelController,
-                  decoration: InputDecoration(labelText: '한국어 수준'),
+                  decoration: InputDecoration(labelText: '규모'),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return '한국어 수준을 입력해주세요';
+                      return '규모 수준을 입력해주세요';
                     }
                     return null;
                   },
                 ),
                 TextFormField(
                   controller: _companyController,
-                  decoration: InputDecoration(labelText: '근무회사'),
+                  decoration: InputDecoration(labelText: '위치'),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return '근무회사를 입력해주세요';
+                      return '위치를 입력해주세요';
                     }
                     return null;
                   },
                 ),
                 SizedBox(height: 20),
                 ElevatedButton(
-
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ProfilePage(
+                          builder: (context) => Companyinfoscreen(
                             name: _nameController.text,
                             experience: _experienceController.text,
                             department: _departmentController.text,
@@ -104,7 +102,7 @@ class _InputPageState extends State<InputPage> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF6D8FA8),
                   ),
-                  child: Text('사원증 보기', style: TextStyle(color: Colors.white),),
+                  child: Text('회사정보 보기', style: TextStyle(color: Colors.white),),
                 ),
               ],
             ),
@@ -116,14 +114,14 @@ class _InputPageState extends State<InputPage> {
 }
 
 
-class ProfilePage extends StatelessWidget {
+class Companyinfoscreen  extends StatelessWidget {
   final String name;
   final String experience;
   final String department;
   final String koreanLevel;
   final String company;
 
-  ProfilePage({
+  Companyinfoscreen ({
     required this.name,
     required this.experience,
     required this.department,
@@ -139,12 +137,12 @@ class ProfilePage extends StatelessWidget {
         title: Align(
           alignment: Alignment.centerLeft,
           child: Text(
-            'ID CARD',
+            'Company Infomations',
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
           ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.perm_contact_cal_outlined),
+          icon: Icon(Icons.pending_actions_outlined),
           onPressed: () {
             print('menu button is clicked');
           },
@@ -155,7 +153,7 @@ class ProfilePage extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => InputPage()),
+                MaterialPageRoute(builder: (context) => InputPage2()),
               );
             },
           ),
@@ -194,7 +192,7 @@ class ProfilePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(3.0),
                         image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: AssetImage('assets/images/fori.png'),
+                          image: AssetImage('assets/images/com.jpg'),
                         ),
                       ),
                     ),
@@ -210,28 +208,28 @@ class ProfilePage extends StatelessWidget {
                       indent: 20,
                       endIndent: 20,
                     ),
-                    ProfileDetail(title: '경력', value: experience),
+                    CompanyinfoscreenDetail(title: '창립', value: experience),
                     Divider(
                       color: Colors.grey[300],
                       thickness: 1,
                       indent: 20,
                       endIndent: 20,
                     ),
-                    ProfileDetail(title: '부서', value: department),
+                    CompanyinfoscreenDetail(title: '전화번호', value: department),
                     Divider(
                       color: Colors.grey[300],
                       thickness: 1,
                       indent: 20,
                       endIndent: 20,
                     ),
-                    ProfileDetail(title: '한국어 수준', value: koreanLevel),
+                    CompanyinfoscreenDetail(title: '규모', value: koreanLevel),
                     Divider(
                       color: Colors.grey[300],
                       thickness: 1,
                       indent: 20,
                       endIndent: 20,
                     ),
-                    ProfileDetail(title: '근무회사', value: company),
+                    CompanyinfoscreenDetail(title: '위치', value: company),
                     SizedBox(height: 20),
                     Spacer(),
                     Align(
@@ -242,7 +240,7 @@ class ProfilePage extends StatelessWidget {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => InputPage()),
+                              MaterialPageRoute(builder: (context) => InputPage2()),
                             );
                           },
                           child: Icon(Icons.settings, color: Colors.white),
@@ -296,13 +294,15 @@ class ProfilePage extends StatelessWidget {
                           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                         SizedBox(height: 20),
-                        AdditionalInfoDetail(title: '입국일로부터의 날짜', value: '500 days'),
+                        AdditionalInfoDetailcom(title: '근로자', value: '3명'),
                         Divider(color: Colors.grey[300]),
-                        AdditionalInfoDetail(title: '근무 기간', value: '2 years'),
+                        AdditionalInfoDetailcom(title: '근무 시간', value: '09:00 - 14:00'),
                         Divider(color: Colors.grey[300]),
-                        AdditionalInfoDetail(title: '비자의 남은 기간', value: '1 year'),
+                        AdditionalInfoDetailcom(title: '잡포유와 가입기간', value: '130일'),
                         Divider(color: Colors.grey[300]),
-                        AdditionalInfoDetail(title: '월급까지 남은 시간', value: '15 days'),
+                        AdditionalInfoDetailcom(title: '직원 급여지급일', value: '매월 15일'),
+                        Divider(color: Colors.grey[300]),
+                        AdditionalInfoDetailcom(title: '인센티브 유무', value: '유'),
                       ],
                     ),
                   ),
@@ -316,11 +316,11 @@ class ProfilePage extends StatelessWidget {
   }
 }
 
-class ProfileDetail extends StatelessWidget {
+class CompanyinfoscreenDetail extends StatelessWidget {
   final String title;
   final String value;
 
-  ProfileDetail({required this.title, required this.value});
+  CompanyinfoscreenDetail({required this.title, required this.value});
 
   @override
   Widget build(BuildContext context) {
@@ -343,11 +343,11 @@ class ProfileDetail extends StatelessWidget {
   }
 }
 
-class AdditionalInfoDetail extends StatelessWidget {
+class AdditionalInfoDetailcom extends StatelessWidget {
   final String title;
   final String value;
 
-  AdditionalInfoDetail({required this.title, required this.value});
+  AdditionalInfoDetailcom({required this.title, required this.value});
 
   @override
   Widget build(BuildContext context) {

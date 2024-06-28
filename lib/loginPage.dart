@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'homepage_1.dart'; // Import your home page for member login
-import 'package:myapp/companyInfoScreen.dart';
+import 'boss/hompage_2.dart';
 void main() {
   runApp(MyApp());
 }
@@ -10,9 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
-      ),
+
       home: SplashScreen(),
     );
   }
@@ -27,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 0), () {
+    Future.delayed(Duration(seconds: 1), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => LoginPage()),
@@ -40,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
-        backgroundColor: Colors.blueGrey,
+        backgroundColor:  const Color(0xFF6D8FA8),
         body: Center(
           child: Image.asset('assets/images/loading.png'),
         ),
@@ -64,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
       if (userType == 'boss') {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => CompanyInfoScreen()),
+          MaterialPageRoute(builder: (context) => Hompageboss()),
         );
       } else if (userType == 'member') {
         Navigator.pushReplacement(
@@ -80,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('로그인', style: TextStyle(color: Colors.white)),
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: const Color(0xFF6D8FA8),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -93,10 +91,10 @@ class _LoginPageState extends State<LoginPage> {
                 controller: _usernameController,
                 decoration: InputDecoration(
                   labelText: '아이디',
-                  prefixIcon: Icon(Icons.person, color: Colors.blueGrey),
+                  prefixIcon: Icon(Icons.person, color: const Color(0xFF6D8FA8)),
                   border: OutlineInputBorder(),
                 ),
-                style: TextStyle(color: Colors.blueGrey),
+                style: TextStyle(color: const Color(0xFF6D8FA8)),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return '아이디를 입력하세요';
@@ -109,10 +107,10 @@ class _LoginPageState extends State<LoginPage> {
                 controller: _passwordController,
                 decoration: InputDecoration(
                   labelText: '비밀번호',
-                  prefixIcon: Icon(Icons.lock, color: Colors.blueGrey),
+                  prefixIcon: Icon(Icons.lock, color: const Color(0xFF6D8FA8),),
                   border: OutlineInputBorder(),
                 ),
-                style: TextStyle(color: Colors.blueGrey),
+                style: TextStyle(color: const Color(0xFF6D8FA8),),
                 obscureText: true,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -132,7 +130,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: ElevatedButton(
                         onPressed: () => _validateAndLogin(context, 'boss'),
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blueGrey,
+                          backgroundColor: const Color(0xFF6D8FA8),
                           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                           textStyle: TextStyle(fontSize: 18, color: Colors.white),
                           shape: RoundedRectangleBorder(
@@ -148,7 +146,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: ElevatedButton(
                         onPressed: () => _validateAndLogin(context, 'member'),
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blueGrey,
+                          backgroundColor: const Color(0xFF6D8FA8),
                           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                           textStyle: TextStyle(fontSize: 18, color: Colors.white),
                           shape: RoundedRectangleBorder(
@@ -163,7 +161,7 @@ class _LoginPageState extends State<LoginPage> {
                       width: double.infinity,
                       child: TextButton(
                         style: TextButton.styleFrom(
-                          backgroundColor: Colors.blueGrey,
+                          backgroundColor: const Color(0xFF6D8FA8),
                         ),
                         onPressed: () {
                           Navigator.push(
@@ -179,7 +177,7 @@ class _LoginPageState extends State<LoginPage> {
                       '아이디 / 비밀번호 찾기',
                       style: TextStyle(
                         decoration: TextDecoration.underline,
-                        color: Colors.blueGrey,
+                        color: const Color(0xFF6D8FA8),
                       ),
                     ),
                   ],
@@ -200,7 +198,7 @@ class SignUpPage extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('회원가입'),
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: const Color(0xFF6D8FA8),
       ),
       body: Center(
         child: Text('회원가입 페이지', style: TextStyle(color: Colors.black)),
@@ -209,17 +207,17 @@ class SignUpPage extends StatelessWidget {
   }
 }
 
-class MyHomePageMem extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('회원 메인 페이지'),
-        backgroundColor: Colors.blueGrey,
-      ),
-      body: Center(
-        child: Text('회원 메인 페이지', style: TextStyle(color: Colors.black)),
-      ),
-    );
-  }
-}
+// class MyHomePageMem extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('회원 메인 페이지'),
+//         backgroundColor: const Color(0xFF6D8FA8),
+//       ),
+//       body: Center(
+//         child: Text('회원 메인 페이지', style: TextStyle(color: Colors.black)),
+//       ),
+//     );
+//   }
+// }

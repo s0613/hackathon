@@ -30,12 +30,6 @@ class _MyHomePageStateMem extends State<MyHomePageMem> {
               ],
             ),
           ),
-          // SmoothPageIndicator(
-          //   controller: _pageController,
-          //   count: 3,
-          //   // effect: WormEffect(),
-          // ),
-
         ],
       ),
     );
