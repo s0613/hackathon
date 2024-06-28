@@ -18,9 +18,9 @@ class _InputPageState extends State<InputPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('정보 입력'),
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Color(0xFFFFFFFF),
         centerTitle: true,
-        titleTextStyle: TextStyle(fontSize: 25, color: Colors.white),
+        titleTextStyle: TextStyle(fontSize: 25, color: Color(0xFFFFFFFF),),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -109,6 +109,181 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
+//
+// class ProfilePage extends StatelessWidget {
+//   final String name;
+//   final String experience;
+//   final String department;
+//   final String koreanLevel;
+//   final String company;
+//
+//   ProfilePage({
+//     required this.name,
+//     required this.experience,
+//     required this.department,
+//     required this.koreanLevel,
+//     required this.company,
+//   });
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//         appBar: AppBar(
+//           backgroundColor: Color(0xFFFFFFFF),
+//           title: Align(
+//             alignment: Alignment.centerLeft,  // 앱바 타이틀을 왼쪽 정렬로 설정
+//             child: Text(
+//               'ID CARD',
+//               style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+//             ),
+//
+//           ),
+//           leading: IconButton(
+//             icon: Icon(Icons.perm_contact_cal_outlined),
+//             onPressed: () {
+//               print('menu button is clicked');
+//             },
+//           ),
+//           // 앱바 오른쪽에 액션을 수행할 수 있는 위젯들을 배치시키는 기능
+//           // 배열 형식으로 보여주면서 복수개를 배치시킬 수 있음
+//           actions: [
+//             IconButton(
+//               icon: Icon(Icons.settings),
+//               onPressed: () {
+//                 Navigator.push(
+//                   context,
+//                   MaterialPageRoute(builder: (context) => InputPage()),
+//                 );
+//               },
+//             ),
+//
+//           ],
+//         ),
+//       backgroundColor: Color(0xFFF2F2F2),
+//       body: Center(
+//         child: Padding(
+//           padding: const EdgeInsets.all(16.0),
+//           child: Container(
+//             width: 350,
+//             height: 600,
+//             decoration: BoxDecoration(
+//               color: Colors.white,
+//               borderRadius: BorderRadius.circular(8.0),
+//               boxShadow: [
+//                 BoxShadow(
+//                   color: Colors.grey.withOpacity(0.5),
+//                   spreadRadius: 5,
+//                   blurRadius: 7,
+//                   offset: Offset(0, 3),
+//                 ),
+//               ],
+//             ),
+//             child: Column(
+//               mainAxisAlignment: MainAxisAlignment.center,
+//               crossAxisAlignment: CrossAxisAlignment.center,
+//               children: <Widget>[
+//                 Container(
+//                   width: 150,
+//                   height: 150,
+//                   decoration: BoxDecoration(
+//                     shape: BoxShape.rectangle,
+//                     borderRadius: BorderRadius.circular(3.0),
+//                     image: DecorationImage(
+//                       fit: BoxFit.cover,
+//                       image: AssetImage('assets/images/refer.jpeg'),
+//                     ),
+//                   ),
+//                 ),
+//                 SizedBox(height: 20),
+//                 Text(
+//                   name,
+//                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+//                 ),
+//                 SizedBox(height: 8),
+//                 Divider(
+//                   color: Colors.grey[300],
+//                   thickness: 1,
+//                   indent: 20,
+//                   endIndent: 20,
+//                 ),
+//                 ProfileDetail(title: '경력', value: experience),
+//                 Divider(
+//                   color: Colors.grey[300],
+//                   thickness: 1,
+//                   indent: 20,
+//                   endIndent: 20,
+//                 ),
+//                 ProfileDetail(title: '부서', value: department),
+//                 Divider(
+//                   color: Colors.grey[300],
+//                   thickness: 1,
+//                   indent: 20,
+//                   endIndent: 20,
+//                 ),
+//                 ProfileDetail(title: '한국어 수준', value: koreanLevel),
+//                 Divider(
+//                   color: Colors.grey[300],
+//                   thickness: 1,
+//                   indent: 20,
+//                   endIndent: 20,
+//                 ),
+//                 ProfileDetail(title: '근무회사', value: company),
+//                 SizedBox(height: 20),
+//                 Spacer(),
+//                 Align(
+//                   alignment: Alignment.bottomRight,
+//                   child: Padding(
+//                     padding: const EdgeInsets.all(16.0),
+//                     child: FloatingActionButton(
+//                       onPressed: () {
+//                         Navigator.push(
+//                           context,
+//                           MaterialPageRoute(builder: (context) => InputPage()),
+//                         );
+//                       },
+//                       child: Icon(Icons.settings, color: Colors.white),
+//                       backgroundColor: Colors.indigo,
+//                     ),
+//                   ),
+//                 ),
+//               ],
+//             ),
+//           ),
+//         ),
+//       ),
+//
+//     );
+//   }
+// }
+//
+// class ProfileDetail extends StatelessWidget {
+//   final String title;
+//   final String value;
+//
+//   ProfileDetail({required this.title, required this.value});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//         children: [
+//           Text(
+//             title,
+//             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+//           ),
+//           Text(
+//             value,
+//             style: TextStyle(fontSize: 18),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
+
+
 
 class ProfilePage extends StatelessWidget {
   final String name;
@@ -128,130 +303,184 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Color(0xFFFFFFFF),
-          title: Align(
-            alignment: Alignment.centerLeft,  // 앱바 타이틀을 왼쪽 정렬로 설정
-            child: Text(
-              'ID CARD',
-              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
-            ),
-
+      appBar: AppBar(
+        backgroundColor: Color(0xFFFFFFFF),
+        title: Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            'ID CARD',
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
           ),
-          leading: IconButton(
-            icon: Icon(Icons.perm_contact_cal_outlined),
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.perm_contact_cal_outlined),
+          onPressed: () {
+            print('menu button is clicked');
+          },
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.settings),
             onPressed: () {
-              print('menu button is clicked');
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => InputPage()),
+              );
             },
           ),
-          // 앱바 오른쪽에 액션을 수행할 수 있는 위젯들을 배치시키는 기능
-          // 배열 형식으로 보여주면서 복수개를 배치시킬 수 있음
-          actions: [
-            IconButton(
-              icon: Icon(Icons.settings),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => InputPage()),
-                );
-              },
-            ),
-
-          ],
-        ),
+        ],
+      ),
       backgroundColor: Color(0xFFF2F2F2),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Container(
-            width: 350,
-            height: 600,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(8.0),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 5,
-                  blurRadius: 7,
-                  offset: Offset(0, 3),
-                ),
-              ],
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  width: 150,
-                  height: 150,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(3.0),
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage('assets/images/refer.jpeg'),
+      body: Stack(
+        children: [
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Container(
+                width: 350,
+                height: 600,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(8.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: Offset(0, 3),
                     ),
-                  ),
+                  ],
                 ),
-                SizedBox(height: 20),
-                Text(
-                  name,
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 8),
-                Divider(
-                  color: Colors.grey[300],
-                  thickness: 1,
-                  indent: 20,
-                  endIndent: 20,
-                ),
-                ProfileDetail(title: '경력', value: experience),
-                Divider(
-                  color: Colors.grey[300],
-                  thickness: 1,
-                  indent: 20,
-                  endIndent: 20,
-                ),
-                ProfileDetail(title: '부서', value: department),
-                Divider(
-                  color: Colors.grey[300],
-                  thickness: 1,
-                  indent: 20,
-                  endIndent: 20,
-                ),
-                ProfileDetail(title: '한국어 수준', value: koreanLevel),
-                Divider(
-                  color: Colors.grey[300],
-                  thickness: 1,
-                  indent: 20,
-                  endIndent: 20,
-                ),
-                ProfileDetail(title: '근무회사', value: company),
-                SizedBox(height: 20),
-                Spacer(),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: FloatingActionButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => InputPage()),
-                        );
-                      },
-                      child: Icon(Icons.settings, color: Colors.white),
-                      backgroundColor: Colors.indigo,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      width: 150,
+                      height: 150,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.circular(3.0),
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage('assets/images/refer.jpeg'),
+                        ),
+                      ),
                     ),
-                  ),
+                    SizedBox(height: 20),
+                    Text(
+                      name,
+                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 8),
+                    Divider(
+                      color: Colors.grey[300],
+                      thickness: 1,
+                      indent: 20,
+                      endIndent: 20,
+                    ),
+                    ProfileDetail(title: '경력', value: experience),
+                    Divider(
+                      color: Colors.grey[300],
+                      thickness: 1,
+                      indent: 20,
+                      endIndent: 20,
+                    ),
+                    ProfileDetail(title: '부서', value: department),
+                    Divider(
+                      color: Colors.grey[300],
+                      thickness: 1,
+                      indent: 20,
+                      endIndent: 20,
+                    ),
+                    ProfileDetail(title: '한국어 수준', value: koreanLevel),
+                    Divider(
+                      color: Colors.grey[300],
+                      thickness: 1,
+                      indent: 20,
+                      endIndent: 20,
+                    ),
+                    ProfileDetail(title: '근무회사', value: company),
+                    SizedBox(height: 20),
+                    Spacer(),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: FloatingActionButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => InputPage()),
+                            );
+                          },
+                          child: Icon(Icons.settings, color: Colors.white),
+                          backgroundColor: Colors.indigo,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
-        ),
+          DraggableScrollableSheet(
+            initialChildSize: 0.1,
+            minChildSize: 0.1,
+            maxChildSize: 0.5,
+            builder: (context, scrollController) {
+              return Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: SingleChildScrollView(
+                  controller: scrollController,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Center(
+                          child: Container(
+                            width: 50,
+                            height: 5,
+                            decoration: BoxDecoration(
+                              color: Colors.grey[300],
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        Text(
+                          'Additional Information',
+                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(height: 20),
+                        AdditionalInfoDetail(title: '입국일로부터의 날짜', value: '500 days'),
+                        Divider(color: Colors.grey[300]),
+                        AdditionalInfoDetail(title: '근무 기간', value: '2 years'),
+                        Divider(color: Colors.grey[300]),
+                        AdditionalInfoDetail(title: '비자의 남은 기간', value: '1 year'),
+                        Divider(color: Colors.grey[300]),
+                        AdditionalInfoDetail(title: '월급까지 남은 시간', value: '15 days'),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
+        ],
       ),
-
     );
   }
 }
@@ -283,6 +512,30 @@ class ProfileDetail extends StatelessWidget {
   }
 }
 
+class AdditionalInfoDetail extends StatelessWidget {
+  final String title;
+  final String value;
 
+  AdditionalInfoDetail({required this.title, required this.value});
 
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+          ),
+          Text(
+            value,
+            style: TextStyle(fontSize: 18),
+          ),
+        ],
+      ),
+    );
+  }
+}
 
