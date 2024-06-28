@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(Duration(seconds: 2), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => LoginPage()),
@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
       child: Scaffold(
         backgroundColor:  const Color(0xFF6D8FA8),
         body: Center(
-          child: Image.asset('assets/images/CS_logo.png'),
+          child: Image.asset('assets/images/asdf.png'),
         ),
       ),
     );

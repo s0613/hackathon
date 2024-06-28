@@ -59,6 +59,8 @@ flutter:
     - assets/images/com.jpg
     - assets/images/fori.png
     - assets/images/CS_logo.png
+    - assets/images/5166329.jpg
+    - assets/images/asdf.png
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
